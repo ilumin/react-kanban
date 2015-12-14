@@ -13,6 +13,15 @@ module.exports = {
     path: PATH.build,
     filename: 'bundle.js'
   },
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: PATH.app
+      }
+    ]
+  },
   devServer: {
     historyApiFallback: true,
     hot: true,
