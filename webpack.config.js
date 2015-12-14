@@ -9,6 +9,9 @@ const PATH = {
 
 module.exports = {
   entry: PATH.app,
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
     path: PATH.build,
     filename: 'bundle.js'
@@ -18,6 +21,11 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ['style', 'css'],
+        include: PATH.app
+      },
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
         include: PATH.app
       }
     ]
