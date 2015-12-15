@@ -1,4 +1,4 @@
-import makekFinalStore from 'alt-utils/lib/makeFinalStore';
+import makeFinalStore from 'alt-utils/lib/makeFinalStore';
 
 export default function(alt, storage, storeName) {
   const finalStore = makeFinalStore(alt);
