@@ -8,7 +8,7 @@ export default class Editable extends React.Component {
       editing: false
     };
   }
-  
+
   render() {
     const {value, onEdit, ...props} = this.props;
     const editing = this.state.editing;
@@ -22,7 +22,7 @@ export default class Editable extends React.Component {
 
   renderEdit = () => {
     return (
-      <input 
+      <input
         type="text"
         autoFocus={true}
         defaultValue={this.props.value}
