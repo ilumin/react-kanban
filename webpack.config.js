@@ -3,6 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 
+// Load *package.json* to build vendor.js
+var pkg = require('./package.json');
+
 const TARGET = process.env.npm_lifecycle_event;
 const PATH = {
   app: path.join(__dirname, 'app'),
@@ -61,9 +64,18 @@ if (TARGET === 'start' || !TARGET) {
 
 if (TARGET === 'build') {
   module.exports = merge(common, {
+    // Define entry point needed for splitting
+    entry: {
+      app: PATH.app,
+      vendor: Object.keys(pkg.dependencies).filter(function(v) {
+        // Exclude `alt-utils` since itsn't support
+        return v !== 'alt-utils';
+      })
+    },
     output: {
       path: PATH.build,
-      filename: 'bundle.js'
+      // Output using entry name 
+      filename: '[name].js'
     },
     devtool: 'source-map',
     plugins: [
