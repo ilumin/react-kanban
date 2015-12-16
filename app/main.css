@@ -3,6 +3,39 @@ body {
   font-family: sans-serif;
 }
 
+.lane {
+  display: inline-block;
+  margin: 1em;
+  background-color: #EFEFEF;
+  bottom: 1px solid #CCC;
+  border-radius: 0.5em;
+  min-width: 10em;
+  vertical-align: top;
+}
+
+.lane-header {
+  overflow: auto;
+  padding: 1em;
+  color: #EFEFEF;
+  background-color: #333;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.lane-name {
+  float: left;
+}
+
+.lane-add-note {
+  float: right;
+  margin-left: 0.5em;
+}
+
+.add-lane, .lane-add-note button {
+  background-color: #FDFDFD;
+  border: 1px solid #CCC;
+}
+
 .add-note {
   background-color: #FDFDFD;
   border: 1px solid #CCC;
