@@ -62,7 +62,7 @@ if (TARGET === 'start' || !TARGET) {
 if (TARGET === 'build') {
   module.exports = merge(common, {
     output: {
-      path: PATHS.build,
+      path: PATH.build,
       filename: 'bundle.js'
     },
     devtool: 'source-map'
