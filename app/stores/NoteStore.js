@@ -20,6 +20,7 @@ class NoteStore {
   }
 
   update({id, task}) {
+    console.log('NoteStore.update', id, task);
     const notes = this.notes.map((note) => {
       if (note.id === id) {
         note.task = task;

@@ -35,9 +35,9 @@ export default class Lane extends React.Component {
             items: () => NoteStore.get(lane.notes)
           }}
         >
-          <Notes 
-            onEdit={this.editNote} 
-            onDelete={this.deleteNote} 
+          <Notes
+            onEdit={this.editNote}
+            onDelete={this.deleteNote}
           />
         </AltContainer>
       </div>
@@ -50,7 +50,10 @@ export default class Lane extends React.Component {
   }
 
   editNote(noteId, task) {
-    NoteActions.update({ noteId, task });
+    NoteActions.update({
+      id: noteId,
+      task
+    });
   }
 
   deleteNote(laneId, noteId) {
@@ -58,11 +61,14 @@ export default class Lane extends React.Component {
     NoteActions.delete(noteId);
   }
 
-  editName(id, name) {
+  editName(noteId, name) {
     if (name) {
-      LaneActions.update({id, name});
+      LaneActions.update({
+        id: noteId,
+        name
+      });
     } else {
-     LaneActions.delete(id);
+      LaneActions.delete(id);
     }
   }
 };
