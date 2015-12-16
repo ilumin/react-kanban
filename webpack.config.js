@@ -74,11 +74,16 @@ if (TARGET === 'build') {
     },
     output: {
       path: PATH.build,
-      // Output using entry name 
-      filename: '[name].js'
+      // Output using entry name
+      filename: '[name].[chunkhash].js',
+      chunkFilename: '[chunkhash].js'
     },
     devtool: 'source-map',
     plugins: [
+      // Extract vendor and manifest files
+      new webpack.optimize.CommonsChunkPlugin({
+        name: ['vendor', 'manifest']
+      }),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
