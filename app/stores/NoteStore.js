@@ -7,7 +7,7 @@ class NoteStore {
     this.bindActions(NoteActions);
     this.notes = [];
     this.exportPublicMethods({
-      get: this.get.bind(this);
+      get: this.get.bind(this)
     });
   }
 
