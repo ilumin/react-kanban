@@ -14,7 +14,12 @@ export default class Notes extends React.Component {
 
   renderNote = (note) => {
     return (
-      <Note className="note" id={note.id} key={note.id}>
+      <Note
+        className="note"
+        id={note.id}
+        key={note.id}
+        onMove={this.onMoveNote}
+      >
         <Editable
           value={note.task}
           onEdit={this.props.onEdit.bind(null, note.id)}
@@ -22,5 +27,9 @@ export default class Notes extends React.Component {
         />
       </Note>
     );
+  }
+
+  onMoveNote({ sourceId, targetId }) {
+     console.log('source', sourceId, 'target', targetId);
   }
 }
